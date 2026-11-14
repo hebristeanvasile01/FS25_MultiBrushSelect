@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="115" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+    <author>FS Modding</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Multi Brush Select</en>
+        <ro>Selectie Multipla Pensule</ro>
+    </title>
+    <description>
+        <en><![CDATA[Select several items at once in the Construction menu and use them together: ground textures, foliage (grass and plants) and trees.
+
+How to use:
+- Open the construction menu (Landscaping: Painting, Foliage, Trees).
+- Click an item to select it. Hold CTRL and click more items to add them to your selection. CTRL+click a selected item again to remove it. You can mix textures, foliage and trees in one selection, switching between the tabs while you select.
+- Painting: several textures (or several foliage types) are mixed randomly while you paint. If your selection also contains other kinds, every paint stroke applies them too (texture + foliage, plus the occasional tree).
+- Trees: with 2 or more trees selected the brush becomes a seed brush: click or drag to scatter random trees from your selection inside the brush circle (PageUp / PageDown changes the radius, mouse wheel the growth stage). The selected texture / foliage is painted under them too. With one tree selected it plants one tree per click.
+- The current selection is listed on screen.
+
+MULTI BRUSH PANEL (Ctrl+O): a separate window with ALL ground textures, foliage and trees (base game, DLC, mods, every tree size and model). Click items to select several, hold the left mouse button on the terrain to paint and plant everything you selected, mixed together. Radius and density are adjustable in the panel. Ctrl+O again switches back to the default menu.
+
+Content from DLCs and other mods only appears in the panel if the player owns / has loaded it; the mod itself contains no DLC content and has no DLC dependency.
+
+Everything is paid at normal prices. Works in singleplayer and multiplayer.]]></en>
+        <ro><![CDATA[Selectezi mai multe elemente deodata in meniul Construction si le folosesti impreuna: texturi de teren, verdeata (iarba si plante) si copaci.
+
+Cum se foloseste:
+- Deschide meniul de constructie (Landscaping: Painting, Foliage, Trees).
+- Click pe un element ca sa-l selectezi. Tine apasat CTRL si da click pe alte elemente ca sa le adaugi la selectie. CTRL+click pe un element selectat il scoate. Poti combina texturi, verdeata si copaci in aceeasi selectie, schimband intre taburi cat timp selectezi.
+- Pictat: mai multe texturi (sau mai multe tipuri de verdeata) se amesteca aleatoriu cat pictezi. Daca selectia contine si alte tipuri, fiecare tras de pensula le aplica si pe ele (textura + verdeata, plus din cand in cand cate un copac).
+- Copaci: cu 2 sau mai multi copaci selectati, pensula devine pensula de semanat: click sau tragere ca sa imprastii copaci aleatorii din selectie in cercul pensulei (PageUp / PageDown schimba raza, rotita mouse-ului stadiul de crestere). Textura / verdeata selectata se picteaza si sub ei. Cu un singur copac selectat planteaza cate unul la fiecare click.
+- Selectia curenta este afisata pe ecran.
+
+PANOU MULTI BRUSH (Ctrl+O): o fereastra separata cu TOATE texturile de teren, verdeata si copacii (joc de baza, DLC, moduri, toate marimile si modelele de copaci). Dai click ca sa selectezi mai multe, tii apasat click stanga pe teren si pune tot ce ai selectat, amestecat. Raza si densitatea se regleaza in panou. Ctrl+O din nou revine la meniul normal.
+
+Continutul din DLC-uri si alte moduri apare in panou doar daca jucatorul le detine / le are incarcate; modul nu contine nimic din DLC-uri si nu depinde de ele.
+
+Totul se plateste la preturile normale. Merge in singleplayer si multiplayer.]]></ro>
+    </description>
+    <iconFilename>icon_MultiBrushSelect.png</iconFilename>
+    <multiplayer supported="true"/>
+    <extraSourceFiles>
+        <sourceFile filename="scripts/MultiBrushSelect.lua"/>
+        <sourceFile filename="scripts/MBSPanel.lua"/>
+    </extraSourceFiles>
+</modDesc>
