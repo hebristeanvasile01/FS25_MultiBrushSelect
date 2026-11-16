@@ -59,9 +59,17 @@ end
 
 function MBS.makeEntryBase(kind, brush, name)
     if kind == "tree" then
-        return { kind = kind, key = "tree:" .. tostring(brush.treeType) .. ":" .. tostring(brush.treeStage) .. ":" .. tostring(brush.variationIndex), treeType = brush.treeType, treeStage = brush.treeStage, variationIndex = brush.variationIndex, storeItem = brush.storeItem, name = name or tostring(brush.treeType) }
+        local key = "tree:" .. tostring(brush.treeType) .. ":" .. tostring(brush.treeStage) .. ":" .. tostring(brush.variationIndex)
+        return {
+            kind = kind, key = key, treeType = brush.treeType, treeStage = brush.treeStage,
+            variationIndex = brush.variationIndex, storeItem = brush.storeItem, name = name or tostring(brush.treeType)
+        }
     elseif kind == "foliage" then
-        return { kind = kind, key = "foliage:" .. tostring(brush.foliagePaint.id) .. ":" .. tostring(brush.foliageState), foliagePaint = brush.foliagePaint, foliageState = brush.foliageState, name = name or "Foliage" }
+        local key = "foliage:" .. tostring(brush.foliagePaint.id) .. ":" .. tostring(brush.foliageState)
+        return {
+            kind = kind, key = key, foliagePaint = brush.foliagePaint,
+            foliageState = brush.foliageState, name = name or "Foliage"
+        }
     end
     return { kind = kind, key = "texture:" .. tostring(brush.terrainLayer), layer = brush.terrainLayer, name = name or "Texture" }
 end
@@ -125,10 +133,7 @@ function MBS:update(dt)
         self.lastBrush = brush
         local kind = brushKind(brush)
         if kind ~= nil then
-            local ok, err = pcall(function()
-                self:onBrushSelected(makeEntry(kind, brush, itemNameFor(screen, brush)), self.ctrlTimer > 0)
-            end)
-            if not ok then Logging.warning('[MultiBrushSelect] select failed: %s', tostring(err)) end
+            self:onBrushSelected(makeEntry(kind, brush, itemNameFor(screen, brush)), self.ctrlTimer > 0)
             Logging.info('[MultiBrushSelect] selection size %d', #self.selection)
         end
     end
@@ -199,7 +204,7 @@ end
 
 function MBS:draw()
     if g_dedicatedServer ~= nil or g_gui == nil or g_gui.currentGuiName ~= "ConstructionScreen" then return end
-    if #self.selection > 0 then pcall(self.drawListHighlights, self) end
+    if #self.selection > 0 then self:drawListHighlights() end
     if brushKind(self.lastBrush) == nil or #self.selection == 0 then return end
     setTextAlignment(RenderText.ALIGN_CENTER)
     local y = 0.94
@@ -296,8 +301,7 @@ if ConstructionBrushPaint ~= nil then
         local bx, bz = self.lastX, self.lastZ
         superFunc(self, isDown, isDrag, isUp)
         if not isUp and self.lastX ~= nil and (self.lastX ~= bx or self.lastZ ~= bz) then
-            local ok, err = pcall(stepExtras, "texture", self)
-            if not ok then Logging.warning('[MultiBrushSelect] extras failed: %s', tostring(err)) end
+            stepExtras("texture", self)
         end
     end)
 end
@@ -307,8 +311,7 @@ if ConstructionBrushFoliage ~= nil then
         local bx, bz = self.lastX, self.lastZ
         superFunc(self, isDown, isDrag, isUp)
         if not isUp and self.lastX ~= nil and (self.lastX ~= bx or self.lastZ ~= bz) then
-            local ok, err = pcall(stepExtras, "foliage", self)
-            if not ok then Logging.warning('[MultiBrushSelect] extras failed: %s', tostring(err)) end
+            stepExtras("foliage", self)
         end
     end)
 end
@@ -403,14 +406,11 @@ if ConstructionBrushTree ~= nil then
                 if dx * dx + dz * dz < (MBS.scatterRadius * 0.8) ^ 2 then return end
             end
             self.mbsLastX, self.mbsLastZ = x, z
-            local ok, err = pcall(function()
-                local planted = MBS.scatterTrees(self, x, y, z)
-                if planted > 0 then
-                    self:playSound(ConstructionSound.ID.TREE, 1 - (self.treeGrowthFactor or 0.5))
-                    MBS.applyExtras("tree", self, x, y, z, MBS.scatterRadius, Landscaping.BRUSH_SHAPE.CIRCLE)
-                end
-            end)
-            if not ok then Logging.warning('[MultiBrushSelect] scatter failed: %s', tostring(err)) end
+            local planted = MBS.scatterTrees(self, x, y, z)
+            if planted > 0 then
+                self:playSound(ConstructionSound.ID.TREE, 1 - (self.treeGrowthFactor or 0.5))
+                MBS.applyExtras("tree", self, x, y, z, MBS.scatterRadius, Landscaping.BRUSH_SHAPE.CIRCLE)
+            end
             return
         end
 
@@ -424,10 +424,7 @@ if ConstructionBrushTree ~= nil then
         end
         superFunc(self)
         if willPlant then
-            local ok, err = pcall(function()
-                MBS.applyExtras("tree", self, x, y, z, TREE_AROUND_RADIUS, Landscaping.BRUSH_SHAPE.CIRCLE)
-            end)
-            if not ok then Logging.warning('[MultiBrushSelect] tree extras failed: %s', tostring(err)) end
+            MBS.applyExtras("tree", self, x, y, z, TREE_AROUND_RADIUS, Landscaping.BRUSH_SHAPE.CIRCLE)
         end
     end)
 end
