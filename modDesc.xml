@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>FS Modding</author>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <title>
         <en>Multi Brush Select</en>
         <de>Mehrfach-Pinsel-Auswahl</de>
@@ -19,6 +19,12 @@ How to use:
 
 MULTI BRUSH PANEL (the last button of the Construction category bar, or Shift+O; keys are listed in the F1 help and can be rebound): a panel with ALL ground textures, foliage and trees (base game, DLC, mods, every tree size and model). Click items to select several, hold the left mouse button on the terrain to paint and plant everything you selected, mixed together. Radius and density are adjustable in the panel. Click another category (or press Shift+O again) to go back to the default menu.
 
+MIX, RULES AND ZONE (extra pages of the panel):
+- Mix: set the share of every selected item (e.g. 60% grass, 30% soil, 10% gravel).
+- Rules: tree gap, tree age (as selected / random / young / old), max slope, min / max altitude, and keep clear of fields, roads and buildings.
+- Zone: draw an area with the knife (click along the outline, click the first point to close) or place a square. Everything you selected fills the zone, and trees, foliage and textures update live while you drag its points or change the selection, mix or rules.
+- Path: draw a line through a forest with the knife and press Build path. Trees on the path are removed, the terrain is levelled and the grass is cleared. Two wheel tracks are painted with the texture you pick, with a grass strip in between and grass or leaves on the edges. Single path (width 2-8 m, default 3 m) or double path for two vehicles.
+
 Content from DLCs and other mods only appears in the panel if the player owns / has loaded it; the mod itself contains no DLC content and has no DLC dependency.
 
 Everything is paid at normal prices. Works in singleplayer and multiplayer.]]></en>
@@ -31,6 +37,12 @@ Bedienung:
 - Baeume: Bei zwei oder mehr gewaehlten Baeumen wird der Pinsel zum Streupinsel und pflanzt zufaellige Baeume aus deiner Auswahl in den Pinselkreis.
 
 MULTI-BRUSH-PANEL (letzte Schaltflaeche der Kategorieleiste oder Umschalt+O): ein Panel mit ALLEN Bodentexturen, Bewuchsarten und Baeumen (Basisspiel, DLC, Mods, jede Baumgroesse und jedes Modell). Mit der Suche und der Auswahl kannst du alles gemischt malen und pflanzen. Rechtsklick radiert, STRG+Z macht gepflanzte Baeume rueckgaengig. Radius und Dichte sind im Panel einstellbar.
+
+MIX, REGELN UND ZONE (weitere Seiten des Panels):
+- Mix: Anteil jedes gewaehlten Elements festlegen (z. B. 60% Gras, 30% Erde, 10% Kies).
+- Regeln: Baumabstand, Baumalter, maximale Neigung, Hoehe von/bis und Abstand zu Feldern, Strassen und Gebaeuden.
+- Zone: Zeichne eine Flaeche mit dem Messer (Punkte setzen, ersten Punkt anklicken zum Schliessen) oder setze ein Quadrat. Alles Gewaehlte fuellt die Zone und aktualisiert sich live, wenn du Punkte ziehst oder Auswahl, Mix oder Regeln aenderst.
+- Pfad: Zeichne mit dem Messer eine Linie durch einen Wald und druecke Build path. Baeume werden entfernt, das Gelaende geglaettet. Zwei Fahrspuren werden mit der gewaehlten Textur gemalt, dazwischen ein Grasstreifen, an den Raendern Gras oder Laub. Einzelweg (2-8 m, Standard 3 m) oder Doppelweg fuer zwei Fahrzeuge.
 
 Inhalte aus DLCs und anderen Mods erscheinen nur, wenn du sie besitzt bzw. geladen hast. Der Mod enthaelt keine DLC-Inhalte und hat keine DLC-Abhaengigkeit.
 
@@ -45,6 +57,12 @@ Cum se foloseste:
 - Selectia curenta este afisata pe ecran.
 
 PANOU MULTI BRUSH (ultimul buton din bara de categorii sau Shift+O): un panou cu TOATE texturile de teren, verdeata si copacii (joc de baza, DLC, moduri, toate marimile si modelele de copaci). Dai click ca sa selectezi mai multe, tii apasat click stanga pe teren si pune tot ce ai selectat, amestecat. Raza si densitatea se regleaza in panou. Click pe alta categorie (sau Shift+O din nou) revine la meniul normal.
+
+MIX, REGULI SI ZONA (pagini noi in panou):
+- Mix: stabilesti procentul fiecarui element selectat (ex. 60% iarba, 30% pamant, 10% pietris).
+- Reguli: distanta intre copaci, varsta copacilor, panta maxima, altitudine min / max si ocolirea campurilor, drumurilor si cladirilor.
+- Zona: desenezi o suprafata cu cutitul (click pe contur, click pe primul punct ca sa inchizi) sau pui un patrat. Tot ce ai selectat umple zona, iar copacii, verdeata si texturile se actualizeaza live cand tragi de puncte sau schimbi selectia, mixul ori regulile.
+- Drum: desenezi cu cutitul o linie printr-o padure si apesi Build path. Copacii sunt eliminati, terenul se niveleaza. Se picteaza doua urme de roti cu textura aleasa, iarba pe mijloc si iarba sau frunze pe margini. Drum simplu (2-8 m, implicit 3 m) sau drum dublu pentru 2 vehicule.
 
 Continutul din DLC-uri si alte moduri apare in panou doar daca jucatorul le detine / le are incarcate; modul nu contine nimic din DLC-uri si nu depinde de ele.
 
